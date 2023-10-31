@@ -16,7 +16,7 @@ const ExperienceCard = ({experienc})=>{
         <img src={experienc.icon} alt={experienc.company_name} className='w-[80%] h-[80%] object-contain tex-center'/>
       </div>
     }>
-      <div>
+      <div >
         <h3 className='text-black text-[24px] font-bold'>
           {experienc.title}
         </h3>
