@@ -2,6 +2,7 @@ import React from 'react';
 import { styles } from '../style';
 import { motion } from 'framer-motion';
 import Computers from './canvas/Computers';
+import { SectioneWrapper } from '../hoc';
 
 const Hero = () => {
   return (
@@ -36,4 +37,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default SectioneWrapper(Hero, "home")
