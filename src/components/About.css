@@ -1,0 +1,29 @@
+/* Define a background gradient animation */
+@keyframes gradientAnimation {
+    0% {
+      background: linear-gradient(45deg, #ff5733, #ff1c13);
+    }
+    100% {
+      background: linear-gradient(45deg, #ff1c13, #ff5733);
+    }
+  }
+  
+  /* Define a scale animation */
+  @keyframes scaleAnimation {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  
+  /* Apply the background gradient animation and scale animation to the inner div when the parent is hovered */
+  .group-hover .group-hover\:animate-gradient {
+    animation: gradientAnimation 1s infinite alternate;
+  }
+  
+  .group-hover .group-hover\:animate-scale {
+    animation: scaleAnimation 0.5s infinite alternate;
+  }
+  
