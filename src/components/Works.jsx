@@ -100,4 +100,4 @@ const Works = () => {
   )
 }
 
-export default SectioneWrapper(Works, "")
+export default SectioneWrapper(Works, "work")

@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 const Tech = () => {
   return (
     <div className='flex flex-row flex-wrap justify-center gap-5'>
-      {technologies.map((technology) => (
+      {technologies.map((technology, index) => (
         <Link to={technology.name} key={technology.name}>
           <div className='w-28 h-28' >
-            <BallCanvas icon={technology.icon} />
+            <BallCanvas icon={technology.icon} index={index} />
           </div>
         </Link>
       ))}
