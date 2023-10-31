@@ -17,7 +17,7 @@ const Ball = (props) => {
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
       <ambientLight intensity={0.25} />
       <directionalLight position={[0, 0, 0.05]} />
-      <mesh castShadow receiveShadow scale={2.75}>
+      <mesh castShadow receiveShadow scale={2.75}  className="mt-3">
         <icosahedronGeometry args={[1, 3]} />
         <meshStandardMaterial
           color='lightgreen'
@@ -31,27 +31,30 @@ const Ball = (props) => {
           scale={1}
           map={decal}
           flatShading
+          
         />
       </mesh>
     </Float>
   );
 };
 
-const BallCanvas = ({ icon, index }) => {
+const BallCanvas = ({ icon, index, name }) => {
   return (
-    <Canvas
-      frameloop='demand'
-      shadows
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={index*Math.PI}/>
-        <Ball imgUrl={icon} />
-      </Suspense>
-
-      <Preload all />
-    </Canvas>
+    <>
+      <Canvas
+        frameloop='demand'
+        shadows
+        dpr={[1, 2]}
+        gl={{ preserveDrawingBuffer: true }}
+      >
+        <Suspense fallback={<CanvasLoader />}>
+          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={index * Math.PI} />
+          <Ball imgUrl={icon} name={name}/>
+        </Suspense>
+        <Preload all />
+      </Canvas>
+      <p className="text-center">{name}</p>
+    </>
   );
 };
 

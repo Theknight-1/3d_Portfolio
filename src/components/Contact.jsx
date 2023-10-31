@@ -1,10 +1,12 @@
-import React,{useState,useRef} from 'react'
-import {motion} from "framer-motion"
+import React, { useState, useRef } from 'react'
+import { motion } from "framer-motion"
 import emailjs from "@emailjs/browser"
 import { styles } from '../style'
 import { slideIn } from "../utils/motion";
 import { SectioneWrapper } from '../hoc';
 import { EarthCanvas } from "./canvas";
+
+
 
 const Contact = () => {
   const formRef = useRef();
@@ -30,18 +32,20 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
+
+    // This functionality is provide by email.js throught which we can get the 200 free mails. Checkout the email.js WEBSITE 
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        'service_g79hhi5',
+        'template_1ns7gma',
         {
           from_name: form.name,
-          to_name: "JavaScript Mastery",
+          to_name: "Himanshu",
           from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
+          to_email: "himanshusaxena5005@gmail.com",
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        'PQ4JgIyprRi9yWNOT'
       )
       .then(
         () => {
@@ -131,4 +135,4 @@ const Contact = () => {
   )
 }
 
-export default SectioneWrapper(Contact,"contact")
+export default SectioneWrapper(Contact, "contact")

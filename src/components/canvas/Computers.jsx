@@ -14,7 +14,7 @@ const Computers = ({isMobile}) => {
       <ambientLight intensity={0.5} />
       <primitive object={computer.scene}
       scale={isMobile ? 0.30 : 0.75}
-      position={isMobile ? [0,-1.5,-0.4] : [0,-2.80,-0.9]} 
+      position={isMobile ? [0,-1.1,-0.4] : [0,-2.80,-0.9]} 
       rotaion={[-0.01,-0.2,-0.1]}
       />
     </mesh>
