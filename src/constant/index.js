@@ -27,8 +27,8 @@ import {
 
 export const navLinks = [
   {
-    id:"home",
-    title:"Home"
+    id: "home",
+    title: "Home",
   },
   {
     id: "about",
@@ -50,7 +50,7 @@ const services = [
     icon: web,
   },
   {
-    title: "React Native Developer",
+    title: "Front End Developer",
     icon: mobile,
   },
   {

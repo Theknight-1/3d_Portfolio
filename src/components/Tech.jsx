@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { BallCanvas } from "./canvas"
 import { technologies } from '../constant';
 import { Link } from 'react-router-dom';
