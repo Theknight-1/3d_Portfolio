@@ -33,6 +33,12 @@ const Contact = () => {
     setLoading(true);
 
 
+    if (form.name === "" || form.email === "") {
+      setLoading(false)
+      return alert("Please Enter Name/Email")
+    }
+
+
     // This functionality is provide by email.js throught which we can get the 200 free mails. Checkout the email.js WEBSITE 
     emailjs
       .send(

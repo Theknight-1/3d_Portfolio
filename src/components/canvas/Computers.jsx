@@ -29,34 +29,42 @@ const Computers = ({ isMobile }) => {
 };
 const ComputerCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [loadingError, setLoadingError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Add a listener for changes to the screen size
     const mediaQuery = window.matchMedia("(max-width: 640px)");
-
-    // Set the initial value of the `isMobile` state variable
     setIsMobile(mediaQuery.matches);
 
-    // Define a callback function to handle changes to the media query
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
     };
-
-    // Add the callback function as a listener for changes to the media query
     mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    // Remove the listener when the component is unmounted
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
-  return (
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!isLoaded) {
+        setLoadingError(true);
+      }
+    }, 10000); // 10 seconds timeout
+
+    return () => clearTimeout(timeout);
+  }, [isLoaded]);
+
+  return loadingError ? (
+    <div>Failed to load the 3D model. Please try again later.</div>
+  ) : (
     <Canvas
       frameloop="demand"
-      className=" hidden  lg:block"
+      className="hidden lg:block"
       shadows
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
+      onCreated={() => setIsLoaded(true)}  
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls

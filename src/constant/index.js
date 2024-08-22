@@ -19,10 +19,12 @@ import {
   starbucks,
   tesla,
   shopify,
-  carrent,
-  jobit,
+  discord_chat_application,
+  aimtechInnovate,
   tripguide,
   threejs,
+  live_logo,
+  bubleGame,
 } from "../assets";
 
 export const navLinks = [
@@ -46,7 +48,7 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Full Stack JS Developer",
     icon: web,
   },
   {
@@ -202,46 +204,62 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Discord Chat Application",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Web-based platform that allows users to create servers. Inside server user can create 3 different type of channel such as TEXT AUDIO VIDEO. Admin/Moderator can manage members/channels. User can talk on chat, voice and video.",
     tags: [
       {
-        name: "react",
+        name: "NEXT",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "mySQL",
         color: "green-text-gradient",
       },
       {
         name: "tailwind",
         color: "pink-text-gradient",
       },
+      {
+        name: "webRTC",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "socket.io",
+        color: "teal-cyan-text-gradient",
+      },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    live: live_logo,
+    live_link: "https://chat-app-production-c2ad.up.railway.app",
+    image: discord_chat_application,
+    source_code_link: "https://github.com/Theknight-1/Chat-App",
   },
   {
-    name: "Job IT",
+    name: "Aimtech Innovate | Social Media Marketing",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Web application which is created using JavaScript framework like Next js. For styling used tailwind css and shadcn/ui. Utilize functionality like email js for sending real time email.",
     tags: [
       {
-        name: "react",
+        name: "NEXT",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
+        name: "tailwind",
         color: "pink-text-gradient",
       },
+      {
+        name: "emailjs",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "shadcn/ui",
+        color: "teal-cyan-text-gradient",
+      },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    live: live_logo,
+    live_link: "https://www.aimtechinnovate.com",
+    image: aimtechInnovate,
+    source_code_link: "https://github.com/Theknight-1/Aimtech-Innovate",
   },
   {
     name: "Trip Guide",
@@ -260,9 +278,39 @@ const projects = [
         name: "css",
         color: "pink-text-gradient",
       },
+      {
+        name: "",
+      },
     ],
+
+    live: live_logo,
+    live_link: "https://chat-app-production-c2ad.up.railway.app/",
     image: tripguide,
     source_code_link: "https://github.com/",
+  },
+  {
+    name: "Bubble Game",
+    description:
+      "Created an interactive bubble game using HTML, CSS, and JavaScript, where players click on changing numbers within bubbles.Goal is to identify and click the maximum number within 1 minute, earning 10 points per correct click. Enhanced my skills in DOM manipulation, event handling, and responsive design, demonstrating my ability to build engaging, user-friendly & responsive web applications.",
+    tags: [
+      {
+        name: "HTML5",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "CSS",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Javascript",
+        color: "pink-text-gradient",
+      },
+    ],
+
+    live: live_logo,
+    live_link: "https://bubble-game-roan-rho.vercel.app/",
+    image: bubleGame,
+    source_code_link: "https://github.com/Theknight-1/Bubble_Game",
   },
 ];
 

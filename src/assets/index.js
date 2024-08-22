@@ -6,6 +6,7 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import live_logo from "./livelink.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -26,9 +27,10 @@ import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
+import aimtechInnovate from "./aimtech-innovate.png";
 import tripguide from "./tripguide.png";
+import discord_chat_application from "./discord_chat_application.png";
+import bubleGame from "./Bubble_game.png";
 
 export {
   logo,
@@ -56,7 +58,9 @@ export {
   shopify,
   starbucks,
   tesla,
-  carrent,
-  jobit,
+  aimtechInnovate,
   tripguide,
+  discord_chat_application,
+  live_logo,
+  bubleGame,
 };
