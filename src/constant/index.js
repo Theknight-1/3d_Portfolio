@@ -21,10 +21,10 @@ import {
   shopify,
   discord_chat_application,
   aimtechInnovate,
-  tripguide,
   threejs,
   live_logo,
   bubleGame,
+  netnest,
 } from "../assets";
 
 export const navLinks = [
@@ -262,31 +262,31 @@ const projects = [
     source_code_link: "https://github.com/Theknight-1/Aimtech-Innovate",
   },
   {
-    name: "Trip Guide",
+    name: "NetNest - Social Media application",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "A Social media application where user can interact with each other by liking and commenting the posts. Implemetd login, signup, upload post, like post functionalities. Used React for front end, Nodejs for the backend and mongodb for the database.",
     tags: [
       {
-        name: "nextjs",
+        name: "ReactJs",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "NodeJs",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "ExpressJs",
         color: "pink-text-gradient",
       },
       {
-        name: "",
+        name: "Mongodb",
+        color: "yellow-green-text-gradient",
       },
     ],
-
     live: live_logo,
-    live_link: "https://chat-app-production-c2ad.up.railway.app/",
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    live_link: "https://net-nest-two.vercel.app/",
+    image: netnest,
+    source_code_link: "https://github.com/Theknight-1/NetNest",
   },
   {
     name: "Bubble Game",

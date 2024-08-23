@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { styles } from '../style';
 import { motion } from 'framer-motion';
 import Computers from './canvas/Computers';
@@ -13,15 +13,15 @@ const Hero = () => {
           <div className='w-1 sm:h-80 h-40 green-pink-gradient' />
         </div>
         <div className='mt-5'>
-          <h1 className={`${styles.heroHeadText}`}>Hi, I'm <span className='text-[#7ab94af8]'>Himanshu Saxena</span></h1>
+          <h1 className={`${styles.heroHeadText}`}>Hi, I&rsquo;m <span className='text-[#7ab94af8]'>Himanshu Saxena</span></h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Hey I'm a Student currently pursuing my B.tech. <br className='sm:block hidden' /> Learing different technologies and Web Devlopment is one of them.
+            Hey I&rsquo;m a Student currently pursuing my B.tech. <br className='sm:block hidden' /> Learing different technologies and Web Devlopment is one of them.
           </p>
         </div>
       </div>
       <Computers />
       <div className='absolute xs:bottom-10 botton-32 w-full flex justify-center items-center'>
-        <a href="#about">
+        <a href="#work">
           <div className='w-[30px] h-[60px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2 '>
             <motion.dev animate={{ y: [0, 24, 0] }} transition={{
               duration: 1.5,
@@ -37,4 +37,5 @@ const Hero = () => {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default SectioneWrapper(Hero, "home")
