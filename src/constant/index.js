@@ -284,7 +284,7 @@ const projects = [
       },
     ],
     live: live_logo,
-    live_link: "https://net-nest-two.vercel.app/",
+    live_link: "https://net-nest-socialmedia.vercel.app/",
     image: netnest,
     source_code_link: "https://github.com/Theknight-1/NetNest",
   },
