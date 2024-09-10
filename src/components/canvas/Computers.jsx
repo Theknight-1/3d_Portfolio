@@ -56,7 +56,7 @@ const ComputerCanvas = () => {
   }, [isLoaded]);
 
   return loadingError ? (
-    <div>Failed to load the 3D model. Please try again later.</div>
+    <div>.</div>
   ) : (
     <Canvas
       frameloop="demand"

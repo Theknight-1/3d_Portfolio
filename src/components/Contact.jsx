@@ -42,8 +42,8 @@ const Contact = () => {
     // This functionality is provide by email.js throught which we can get the 200 free mails. Checkout the email.js WEBSITE 
     emailjs
       .send(
-        'service_g79hhi5',
-        'template_1ns7gma',
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
           to_name: "Himanshu",
@@ -51,7 +51,7 @@ const Contact = () => {
           to_email: "himanshusaxena5005@gmail.com",
           message: form.message,
         },
-        'TTp0Vsx20RoZKcD4I'
+        import.meta.env.VITE_EMAILJS_PRIVATE_KEY
       )
       .then(
         () => {

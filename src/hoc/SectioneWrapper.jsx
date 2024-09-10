@@ -1,8 +1,6 @@
-import React from 'react'
 import {motion} from "framer-motion";
 import { styles } from '../style';
 import { staggerContainer } from '../utils/motion';
-import { LoopOnce } from 'three';
 
 
 const SectioneWrapper = (Component, idName) => {
