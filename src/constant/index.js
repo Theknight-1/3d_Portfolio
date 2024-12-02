@@ -25,6 +25,7 @@ import {
   live_logo,
   bubleGame,
   netnest,
+  attainX,
 } from "../assets";
 
 export const navLinks = [
@@ -203,6 +204,38 @@ const testimonials = [
 ];
 
 const projects = [
+  {
+    name: "AttainX",
+    description:
+      "The AttainX website showcases its capabilities in delivering innovative solutions, including AI/ML, cloud services, and cybersecurity, primarily for U.S. federal agencies. It highlights client trust, a focus on modernization, and tailored services. The site includes sections for team, services, news, career opportunities, and a contact form, promoting its commitment to collaboration and excellence.",
+    tags: [
+      {
+        name: "Next Js",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "TypeScript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Gsap",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "Strapi",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "cloudinary",
+        color: "teal-cyan-text-gradient",
+      },
+    ],
+
+    live: live_logo,
+    live_link: "https://atxdev.codemarks.in/",
+    image: attainX,
+    source_code_link: "https://github.com/codemarks/attainx-website-frontend",
+  },
   {
     name: "Discord Chat Application",
     description:
