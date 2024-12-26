@@ -4,7 +4,6 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
-// eslint-disable-next-line react/prop-types
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
   return (
@@ -17,23 +16,23 @@ const Computers = ({ isMobile }) => {
         castShadow
         shadow-mapSize={1024}
       />
-      <ambientLight intensity={0.5} />
+      <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.34 : 0.60}
-        position={isMobile ? [0, -2.50, -0.4] : [0, -2.0, -0.9]}
-        rotaion={[-0.01, -0.2, -0.1]}
+        scale={isMobile ? 0.45 : 0.75}
+        position={isMobile ? [0, -3, -1.2] : [0, -3.25, -1.5]}
+        rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
   );
 };
+
 const ComputerCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [loadingError, setLoadingError] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     setIsMobile(mediaQuery.matches);
 
     const handleMediaQueryChange = (event) => {
@@ -45,26 +44,21 @@ const ComputerCanvas = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!isLoaded) {
-        setLoadingError(true);
-      }
-    }, 10000); // 10 seconds timeout
+  if (loadingError) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <p className="text-white text-lg">Failed to load 3D model. Please refresh.</p>
+      </div>
+    );
+  }
 
-    return () => clearTimeout(timeout);
-  }, [isLoaded]);
-
-  return loadingError ? (
-    <div>.</div>
-  ) : (
+  return (
     <Canvas
       frameloop="demand"
-      className="hidden lg:block"
       shadows
+      dpr={[1, 2]}
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
-      onCreated={() => setIsLoaded(true)}  
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
@@ -74,6 +68,7 @@ const ComputerCanvas = () => {
         />
         <Computers isMobile={isMobile} />
       </Suspense>
+
       <Preload all />
     </Canvas>
   );
