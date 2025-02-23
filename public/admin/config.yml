@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  branch: main # Your repo's default branch
+media_folder: "public/images/uploads" # Where uploaded images are stored
+public_folder: "/images/uploads" # Public path for images in the frontend
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "src/content/projects" # Directory for project Markdown files
+    create: true # Allow creating new projects
+    slug: "{{slug}}" # Filename format based on title
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - {
+          label: "Live Link",
+          name: "live_link",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Source Code Link",
+          name: "source_code_link",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "list",
+          fields:
+            [
+              { label: "Tag Name", name: "name", widget: "string" },
+              {
+                label: "Color",
+                name: "color",
+                widget: "string",
+                default: "blue-text-gradient",
+              },
+            ],
+          required: false,
+        }
