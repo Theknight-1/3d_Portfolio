@@ -3,10 +3,17 @@ import { Tilt } from 'react-tilt'
 import { SectioneWrapper } from '../hoc'
 import { motion } from "framer-motion"
 import { styles } from '../style'
-import { github, live_logo } from '../assets'
+import { live_logo } from '../assets'
 import { projects } from '../constant'
 import { fadeIn, textVariant } from '../utils/motion'
+import { Cloudinary } from '@cloudinary/url-gen';
+import { auto } from '@cloudinary/url-gen/actions/resize';
+import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
+import { AdvancedImage } from '@cloudinary/react'
 
+
+// Initialize Cloudinary
+const cld = new Cloudinary({ cloud: { cloudName: import.meta.env.VITE_CLOUD_NAME } }); // Replace 'dp09hey5j' with your actual Cloudinary cloud name
 
 const ProjectCard = ({
   index,
@@ -17,6 +24,22 @@ const ProjectCard = ({
   source_code_link,
   live_link,
 }) => {
+
+  const sampleImage = cld
+    .image(image) // Replace with your uploaded image's public ID
+    .format('auto')
+    .quality('auto')
+    .resize(auto().gravity(autoGravity()));
+
+  const githubImg = cld
+    .image('Portfolio/ol7jhgqalu3xj93ccmxb') // Replace with your uploaded image's public ID
+    .format('auto')
+    .quality('auto')
+    .resize(auto().gravity(autoGravity()));
+
+  console.log(sampleImage, "Image form cloudinary");
+
+
   return (
     <>
       <motion.div variants={fadeIn("left", "spring", index * 0.5, 0.75)}>
@@ -28,10 +51,11 @@ const ProjectCard = ({
           }}
           className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
         >
-          <div className='relative w-full h-[230px]'>
-            <img
-              src={image}
+          <div className='relative w-full h-[200px]'>
+            <AdvancedImage
+              cldImg={sampleImage}
               alt='project_image'
+              loading='lazy'
               className='w-full h-full object-contain rounded-2xl'
             />
 
@@ -49,8 +73,8 @@ const ProjectCard = ({
                 onClick={() => window.open(source_code_link, "_blank")}
                 className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
               >
-                <img
-                  src={github}
+                <AdvancedImage
+                  cldImg={githubImg}
                   alt='source code'
                   className='w-1/2 h-1/2 object-contain'
                 />
