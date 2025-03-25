@@ -2,23 +2,31 @@
 
 import { styles } from "../style";
 import { motion } from "framer-motion";
-import Computers from "./canvas/Computers";
-import { SectioneWrapper } from "../hoc";
-import { BoxReveal } from "../hoc/BoxReveal"; // Import the BoxReveal component
+import { lazy, Suspense } from "react";
+import { BoxReveal } from "../hoc/BoxReveal";
+import SectioneWrapper from "../hoc/SectioneWrapper";
+
+// Lazy load the Computers component
+const Computers = lazy(() => import("./canvas/Computers"));
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-[50vh] lg:h-screen mx-auto">
+    <section
+      className="relative w-full h-screen mx-auto overflow-hidden"
+      id="home"
+    >
+      {/* Main content */}
       <div
         className={`${styles.paddingX} absolute h-full inset-0 top-[50px] lg:top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
-        <div className="flex flex-col items-center mt-5">
+        {/* Indicator line */}
+        <div className="flex flex-col items-center mt-5 shrink-0">
           <div className="w-5 h-5 rounded-lg bg-[#7ab94af8]" />
-          <div className="w-1 sm:h-80 h-40 green-pink-gradient" />
+          <div className="w-1 h-40 sm:h-80 green-pink-gradient" />
         </div>
 
-        {/* Wrap the text content in BoxReveal */}
-        <div className="mt-5">
+        {/* Text content */}
+        <div className="z-10">
           <BoxReveal duration={1} boxColor="#7ab94af8">
             <h1 className={`${styles.heroHeadText}`}>
               Hi, I&rsquo;m{" "}
@@ -27,22 +35,35 @@ const Hero = () => {
           </BoxReveal>
           <BoxReveal duration={1} >
             <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-              Hey I&rsquo;m a Student currently pursuing my B.tech.{" "}
-              <br className="sm:block hidden" />
-              Learning different technologies and Web Development is one of
-              them.
+              I’m a Computer engineer graduate and full-stack web developer skilled in{" "}
+              <span className="font-semibold">MERN stack</span>,{" "}
+              <span className="font-semibold">Three.js</span>, and{" "}
+              <span className="font-semibold">PostgreSQL with Prisma ORM</span>.
+              Explore my work below!
             </p>
           </BoxReveal>
         </div>
       </div>
 
-      <Computers />
+      {/* Lazy-loaded 3D canvas */}
+      <div className="relative w-full h-[calc(100vh-200px)] md:h-[calc(100vh-140px)]">
+        <Suspense
+          fallback={
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="w-10 h-10 border-4 border-[#7ab94af8] border-t-transparent rounded-full animate-spin" />
+            </div>
+          }
+        >
+          <Computers />
+        </Suspense>
+      </div>
 
-      <div className="absolute xs:bottom-10 botton-32 w-full hidden lg:flex justify-center items-center">
-        <a href="#work">
-          <div className="w-[30px] h-[60px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2 ">
-            <motion.dev
-              animate={{ y: [0, 24, 0] }}
+      {/* Scroll indicator */}
+      <div className="absolute bottom-6 xs:bottom-10 w-full flex justify-center items-center">
+        <a href="#work" aria-label="Scroll to Work section">
+          <div className="w-[30px] h-[56px] xs:w-[35px] xs:h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
+            <motion.div
+              animate={{ y: [0, 20, 0] }}
               transition={{
                 duration: 1.5,
                 repeat: Infinity,
