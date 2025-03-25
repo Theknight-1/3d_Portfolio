@@ -32,6 +32,7 @@ import tripguide from "./tripguide.png";
 import discord_chat_application from "./discord_chat_application.png";
 import bubleGame from "./Bubble_game.png";
 import netnest from "./netnest.png";
+import attainX from "./attainX.png";
 
 export {
   logo,
@@ -65,4 +66,5 @@ export {
   live_logo,
   bubleGame,
   netnest,
+  attainX,
 };

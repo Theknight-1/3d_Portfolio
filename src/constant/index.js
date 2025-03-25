@@ -22,8 +22,6 @@ import {
   aimtechInnovate,
   threejs,
   live_logo,
-  bubleGame,
-  netnest,
 } from "../assets";
 
 export const navLinks = [
@@ -203,7 +201,7 @@ const projects = [
     ],
     live: live_logo,
     live_link: "https://www.aimtechinnovate.com",
-    image: aimtechInnovate,
+    image: "Portfolio/grhvyc2xngoqul5oe27v",
     source_code_link: "https://github.com/Theknight-1/Aimtech-Innovate",
   },
   {
@@ -218,7 +216,7 @@ const projects = [
     ],
     live: live_logo,
     live_link: "https://net-nest-socialmedia.vercel.app/",
-    image: netnest,
+    image: "Portfolio/uzijxhassqx35kuk4arq",
     source_code_link: "https://github.com/Theknight-1/NetNest",
   },
   {
@@ -232,7 +230,7 @@ const projects = [
     ],
     live: live_logo,
     live_link: "https://bubble-game-roan-rho.vercel.app/",
-    image: bubleGame,
+    image: "Portfolio/ruexiszda1btqyxy1fel",
     source_code_link: "https://github.com/Theknight-1/Bubble_Game",
   },
 ];

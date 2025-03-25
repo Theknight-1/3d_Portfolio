@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-
 import { styles } from "../style";
 import { motion } from "framer-motion";
 import { lazy, Suspense } from "react";
 import { BoxReveal } from "../hoc/BoxReveal";
 import SectioneWrapper from "../hoc/SectioneWrapper";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 // Lazy load the Computers component
 const Computers = lazy(() => import("./canvas/Computers"));
@@ -17,7 +17,7 @@ const Hero = () => {
     >
       {/* Main content */}
       <div
-        className={`${styles.paddingX} absolute h-full inset-0 top-[50px] lg:top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
+        className={`${styles.paddingX} absolute inset-0 top-[80px] md:top-[120px] max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-5`}
       >
         {/* Indicator line */}
         <div className="flex flex-col items-center mt-5 shrink-0">
@@ -28,14 +28,14 @@ const Hero = () => {
         {/* Text content */}
         <div className="z-10">
           <BoxReveal duration={1} boxColor="#7ab94af8">
-            <h1 className={`${styles.heroHeadText}`}>
-              Hi, I&rsquo;m{" "}
+            <h1 className={`${styles.heroHeadText} text-white`}>
+              Hi, I’m{" "}
               <span className="text-[#7ab94af8]">Himanshu Saxena</span>
             </h1>
           </BoxReveal>
-          <BoxReveal duration={1} >
+          <BoxReveal duration={1}>
             <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-              I’m a Computer engineer graduate and full-stack web developer skilled in{" "}
+              I’m a Computer Engineering graduate and full-stack web developer skilled in{" "}
               <span className="font-semibold">MERN stack</span>,{" "}
               <span className="font-semibold">Three.js</span>, and{" "}
               <span className="font-semibold">PostgreSQL with Prisma ORM</span>.
@@ -45,8 +45,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Lazy-loaded 3D canvas */}
-      <div className="relative w-full h-[calc(100vh-200px)] md:h-[calc(100vh-140px)]">
+      {/* Lazy-loaded 3D canvas with Error Boundary */}
+      <div className="relative w-full h-[calc(100vh-200px)] md:h-[calc(100vh-240px)]">
         <Suspense
           fallback={
             <div className="w-full h-full flex items-center justify-center">
@@ -54,7 +54,9 @@ const Hero = () => {
             </div>
           }
         >
-          <Computers />
+          <ErrorBoundary>
+            <Computers />
+          </ErrorBoundary>
         </Suspense>
       </div>
 
@@ -67,7 +69,8 @@ const Hero = () => {
               transition={{
                 duration: 1.5,
                 repeat: Infinity,
-                repeateType: "loop",
+                repeatType: "loop",
+                ease: "easeInOut",
               }}
               className="w-3 h-3 rounded-full bg-secondary mb-1"
             />
