@@ -17,7 +17,7 @@ const Hero = () => {
     >
       {/* Main content */}
       <div
-        className={`${styles.paddingX} absolute inset-0 top-[80px] md:top-[120px] max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-5`}
+        className={`${styles.paddingX} absolute inset-0 top-[80px] md:top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
         {/* Indicator line */}
         <div className="flex flex-col items-center mt-5 shrink-0">
